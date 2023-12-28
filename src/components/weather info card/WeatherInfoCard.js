@@ -11,8 +11,9 @@ const WeatherInfoCard = (props) => {
         <div
             className="w-11/12 px-2 py-1 rounded-lg shadow-[1px_1px_10px_0px_grey]">
             <h1 className="text-lg font-semibold text-orange-400">
-                {props.place}
+                {props.city}, {props.state}, {props.country}
             </h1>
+
             <h3 className="text-lg text-gray-400">
                 {time}
             </h3>
@@ -25,38 +26,40 @@ const WeatherInfoCard = (props) => {
                 </img>
             </Section>
 
-            <Section justify="justify-between" padding="px-1">
-                <HeadingContainer value={props.celsius} />
-                <HeadingContainer value={props.fahrenheit} />
+            <h1 className="text-xl font-semibold text-center text-orange-500">{props.text}</h1>
+
+            <Section justify="justify-between" padding="px-1" margin="mt-2">
+                <HeadingContainer value={`${props.celsius}℃`} />
+                <HeadingContainer value={`${props.fahrenheit}℉`} />
             </Section>
 
             <Section justify="justify-between" margin="mt-2">
-                <WeatherDataConatiner 
+                <WeatherDataConatiner
                     text="Wind Speed"
-                    value={props.windSpeed}
+                    value={`${props.windSpeed}KPH`}
                 />
-                <WeatherDataConatiner 
+                <WeatherDataConatiner
                     text="Humidity"
-                    value={props.humidity}
+                    value={`${props.humidity}%`}
                 />
             </Section>
 
             <Section justify="justify-evenly" margin="mt-2">
                 <WeatherDataConatiner
-                    text="CO (µg/m3)"
+                    text={<h1>CO (µg/m<sup>3</sup>)</h1>}
                     value={props.co}
                 />
                 <WeatherDataConatiner
-                    text="NO2 (µg/m3)"
-                    value={props.no}
+                    text={<h1>NO<sub>2</sub> (µg/m<sup>3</sup>)</h1>}
+                    value={props.no2}
                 />
                 <WeatherDataConatiner
-                    text="O3 (µg/m3)"
-                    value={props.o}
+                    text={<h1>O<sub>3</sub> (µg/m<sup>3</sup>)</h1>}
+                    value={props.o3}
                 />
                 <WeatherDataConatiner
-                    text="SO2 (µg/m3)"
-                    value={props.so}
+                    text={<h1>SO<sub>2</sub> (µg/m<sup>3</sup>)</h1>}
+                    value={props.so2}
                 />
             </Section>
         </div>
