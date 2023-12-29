@@ -28,9 +28,9 @@ const Navigation = () => {
                 className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-400"
                 onClick={toogleTheme}>
                 <img
-                    src={theme === true ? lightTheme : darkTheme}
+                    src={theme === true ? darkTheme : lightTheme}
                     className="w-5 h-5"
-                    alt={theme === true ? "Light-Theme" : "Dark-Theme"}>
+                    alt={theme === true ? "Dark-Theme" : "Light-Theme"}>
                 </img>
             </button>
 

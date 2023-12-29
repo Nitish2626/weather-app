@@ -62,6 +62,17 @@ const WeatherInfoCard = (props) => {
                     value={props.so2}
                 />
             </Section>
+
+            <Section justify="justify-between" margin="mt-2">
+                <WeatherDataConatiner
+                    text="Sunrise"
+                    value={`${props.sunrise}`}
+                />
+                <WeatherDataConatiner
+                    text="Sunset"
+                    value={`${props.sunset}`}
+                />
+            </Section>
         </div>
     );
 }

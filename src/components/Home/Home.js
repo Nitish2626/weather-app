@@ -1,47 +1,65 @@
 import { useEffect, useState } from "react";
 import WeatherInfoCard from "../weather info card/WeatherInfoCard";
 import axios from "axios";
+import Loader from "../loader/Loader";
 
 const Home = (props) => {
 
-    const [weatherData, setWeatherData] = useState();
+    const [currentWeatherData, setCurrentWeatherData] = useState();
+    const [forecastWeatherData,setForecastWeatherData]=useState();
+    const [loader, setLoader] = useState(false);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const currentWeather = async () => {
             try {
-                const data = await axios.get(`http://api.weatherapi.com/v1/current.json?key=131dcb1e52f444998f574148232612&q=${props.search}&aqi=yes`)
-                const weather = await data.data;
-                setWeatherData(await weather);
+                setLoader(true);
+                const weatherCondition = await axios.get(`http://api.weatherapi.com/v1/current.json?key=131dcb1e52f444998f574148232612&q=${props.search}&aqi=yes`)
+                const weather = await weatherCondition.data;
+                setCurrentWeatherData(await weather);
+                setLoader(false);
             } catch (error) {
-                console.log("Fetching ERROR",error);
+                console.log("Fetching ERROR", error);
             }
         };
-        fetchData();
-    }, [props.search]);
+        const forecastWeather=async()=>{
+            try{
+                setLoader(true);
+                const weatherCondition=await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=131dcb1e52f444998f574148232612&q=${props.search}&days=1&aqi=no&alerts=no`)
+                const weather=await weatherCondition.data;
+                setForecastWeatherData(await weather);
+                setLoader(false);
+            }
+            catch(err){
+                console.log(err);
+            }
+        };
 
-    console.log(weatherData);
+        currentWeather();
+        forecastWeather();
+    }, [props.search]);
 
     return (
         <div className="w-full flex items-center justify-center mt-20">
-            {/* {weatherData.map((d, i) => { */}
-                {weatherData && <WeatherInfoCard
-                    // key={i}
-                    city={weatherData.location.name}
-                    state={weatherData.location.region}
-                    country={weatherData.location.country}
-                    time={weatherData.location.localtime}
-                    text={weatherData.current.condition.text}
-                    icon={weatherData.current.condition.icon}
-                    celsius={weatherData.current.temp_c}
-                    fahrenheit={weatherData.current.temp_f}
-                    windSpeed={weatherData.current.wind_kph}
-                    humidity={weatherData.current.humidity}
-                    co={weatherData.current.air_quality.co}
-                    no2={weatherData.current.air_quality.no2}
-                    o3={weatherData.current.air_quality.o3}
-                    so2={weatherData.current.air_quality.so2}
-                />}
-            {/* })}; */}
+            {loader ? <Loader borderColor="border-orange-500" /> :
+                <WeatherInfoCard
+                    city={currentWeatherData?.location.name}
+                    state={currentWeatherData?.location.region}
+                    country={currentWeatherData?.location.country}
+                    time={currentWeatherData?.location.localtime}
+                    text={currentWeatherData?.current.condition.text || currentWeatherData?.error.message}
+                    icon={currentWeatherData?.current.condition.icon}
+                    celsius={currentWeatherData?.current.temp_c}
+                    fahrenheit={currentWeatherData?.current.temp_f}
+                    windSpeed={currentWeatherData?.current.wind_kph}
+                    humidity={currentWeatherData?.current.humidity}
+                    co={currentWeatherData?.current.air_quality.co}
+                    no2={currentWeatherData?.current.air_quality.no2}
+                    o3={currentWeatherData?.current.air_quality.o3}
+                    so2={currentWeatherData?.current.air_quality.so2}
+                    sunrise={forecastWeatherData?.forecast.forecastday[0].astro.sunrise}
+                    sunset={forecastWeatherData?.forecast.forecastday[0].astro.sunset}
+                />
+            }
         </div>
     );
 }
