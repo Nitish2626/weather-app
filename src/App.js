@@ -3,10 +3,13 @@ import Home from "./components/home/Home";
 import Navigation from "./components/navigation/Navigation";
 import Search from "./components/search bar/Search";
 import { useEffect, useState } from "react";
+import SuggestionContainer from "./components/suggestion container/SuggestionContainer";
 
 function App() {
 
-  const [searchValue, setSearchValue] = useState(`${localStorage.getItem("latitude")},${localStorage.getItem("longitude")}` || "london");
+  const [searchValue, setSearchValue] = useState(`${localStorage.getItem("latitude")},${localStorage.getItem("longitude")}`);
+
+  const [showSuggestion,setShowSuggestion]=useState(false);
 
   useEffect(() => {
 
@@ -34,7 +37,8 @@ function App() {
     <Router>
 
       <Navigation />
-      <Search search={search} />
+      <Search search={search} suggestion={setShowSuggestion} />
+      {showSuggestion && <SuggestionContainer search={searchValue} value={search} />}
 
       <Routes>
         <Route path="/" element={<Home search={searchValue} />}></Route>
