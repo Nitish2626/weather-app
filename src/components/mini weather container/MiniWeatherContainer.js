@@ -14,7 +14,7 @@ const MiniWeatherContainer = (props) => {
                 className="w-10 h-10">
             </img>
 
-            <h1 className="font-semibold text-orange-600">
+            <h1 className="w-full font-semibold text-orange-600 text-ellipsis overflow-hidden whitespace-nowrap">
                 {props.text}
             </h1>
 

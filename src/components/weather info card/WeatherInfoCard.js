@@ -9,7 +9,7 @@ const WeatherInfoCard = (props) => {
 
     return (
         <div
-            className="w-11/12 px-2 py-1 rounded-lg shadow-[1px_1px_10px_0px_grey]">
+            className="w-80 px-2 py-1 rounded-lg shadow-[1px_1px_10px_0px_grey]">
             <h1 className="text-lg font-semibold text-orange-400">
                 {props.city}, {props.state}, {props.country}
             </h1>

@@ -27,7 +27,7 @@ const Home = (props) => {
     }, [props.search]);
 
     return (
-        <div className="w-full flex flex-col items-center justify-center gap-5 mt-24 pb-10">
+        <div className="w-full flex flex-col items-center justify-center gap-5 mt-20 pb-10">
             {loader ? <Loader borderColor="border-orange-500" /> :
                 <WeatherInfoCard
                     city={forecastWeatherData?.location.name}

@@ -5,6 +5,7 @@ import Search from "./components/search bar/Search";
 import { useEffect, useState } from "react";
 import SuggestionContainer from "./components/suggestion container/SuggestionContainer";
 
+
 function App() {
 
   const [searchValue, setSearchValue] = useState(`${localStorage.getItem("latitude")},${localStorage.getItem("longitude")}`);
