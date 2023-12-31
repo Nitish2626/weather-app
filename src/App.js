@@ -39,7 +39,7 @@ function App() {
 
       <Navigation />
       <Search search={search} suggestion={setShowSuggestion} />
-      {showSuggestion && <SuggestionContainer search={searchValue} value={search} />}
+      {showSuggestion && <SuggestionContainer search={searchValue} value={search} suggestion={setShowSuggestion} />}
 
       <Routes>
         <Route path="/" element={<Home search={searchValue} />}></Route>

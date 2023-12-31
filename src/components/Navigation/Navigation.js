@@ -14,7 +14,7 @@ const Navigation = () => {
 
     return (
         <nav
-            className="w-full h-10 flex items-center justify-between sticky top-0 bg-slate-300 px-3 z-10">
+            className="w-full h-10 flex items-center justify-between sticky top-0 bg-white px-3 z-10">
 
             <Link to="/">
                 <img
