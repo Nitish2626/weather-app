@@ -1,9 +1,13 @@
+import { useDarkMode } from "../dark mode context/DarkModeContext";
+
 const MiniWeatherContainer = (props) => {
+
+    const {isDarkMode}=useDarkMode();
 
     let time = props.time.split(" ");
 
     return (
-        <section className="w-14 flex flex-col items-center justify-center">
+        <section className={`w-14 flex flex-col items-center justify-center ${isDarkMode ? "dark:text-blue-300" : ""}`}>
             <h1 className="text-semibold">
                 {time[1]}
             </h1>

@@ -1,15 +1,18 @@
 import HeadingContainer from "../heading container/HeadingContainer";
 import Section from "../section container/Section";
 import WeatherDataConatiner from "../weather data container/WeatherDataContainer";
+import { useDarkMode } from "../dark mode context/DarkModeContext";
 
 const WeatherInfoCard = (props) => {
+
+    const {isDarkMode}=useDarkMode();
 
     let time = new Date(props.time);
     time = time.toLocaleString();
 
     return (
         <div
-            className="w-11/12 px-2 py-1 rounded-lg shadow-[1px_1px_10px_0px_grey] xs:w-80">
+            className={`w-11/12 px-2 py-1 rounded-lg shadow-[1px_1px_10px_0px_grey] xs:w-80 ${isDarkMode ? "dark:text-blue-300" : ""} `}>
             <h1 className="text-lg font-semibold text-orange-400">
                 {props.city}, {props.state}, {props.country}
             </h1>

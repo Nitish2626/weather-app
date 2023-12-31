@@ -4,13 +4,16 @@ import Navigation from "./components/navigation/Navigation";
 import Search from "./components/search bar/Search";
 import { useEffect, useState } from "react";
 import SuggestionContainer from "./components/suggestion container/SuggestionContainer";
+import { useDarkMode } from "./components/dark mode context/DarkModeContext";
 
 
 function App() {
 
+  const {isDarkMode}=useDarkMode();
+
   const [searchValue, setSearchValue] = useState(`${localStorage.getItem("latitude")},${localStorage.getItem("longitude")}`);
 
-  const [showSuggestion,setShowSuggestion]=useState(false);
+  const [showSuggestion, setShowSuggestion] = useState(false);
 
   useEffect(() => {
 
@@ -28,24 +31,26 @@ function App() {
     };
 
     getLocation();
-  },[localStorage.getItem("latitude"),localStorage.getItem("longitude")]);
+  }, [localStorage.getItem("latitude"), localStorage.getItem("longitude")]);
 
   const search = (s) => {
     setSearchValue(s);
   };
 
   return (
-    <Router>
+    <div className={`${isDarkMode ? "dark:bg-black" : "bg-white"}`}>
+      <Router>
 
-      <Navigation />
-      <Search search={search} suggestion={setShowSuggestion} />
-      {showSuggestion && <SuggestionContainer search={searchValue} value={search} suggestion={setShowSuggestion} />}
+        <Navigation />
+        <Search search={search} suggestion={setShowSuggestion} />
+        {showSuggestion && <SuggestionContainer search={searchValue} value={search} suggestion={setShowSuggestion} />}
 
-      <Routes>
-        <Route path="/" element={<Home search={searchValue} />}></Route>
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home search={searchValue} />}></Route>
+        </Routes>
 
-    </Router>
+      </Router>
+    </div>
   );
 }
 
