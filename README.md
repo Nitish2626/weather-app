@@ -1,6 +1,6 @@
-# Weather WebApp
-
-![HTML Image](C:/Users/Nitish/OneDrive/Documents/React js/portfolio-app/src/Images/html.png)
+<h1> <img src="src/images/weather-logo.png" alt="HTML image" width="40" height="40" /> Weather WebApp </h1>
+## Technologies used
+<img src="src/images/html.png" alt="HTML image" width="50" height="50" />
 ## Available Scripts
 
 In the project directory, you can run:
