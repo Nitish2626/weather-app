@@ -1,7 +1,6 @@
-# Getting Started with Create React App
+# Weather WebApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+![HTML Image](C:/Users/Nitish/OneDrive/Documents/React js/portfolio-app/src/Images/html.png)
 ## Available Scripts
 
 In the project directory, you can run:
