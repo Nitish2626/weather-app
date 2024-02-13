@@ -11,7 +11,11 @@
 
 <h3>Setup Repository </h3>
 <h4>1. Fork this Repository</h4>
-<h4>2. Clone Repository in your PC using `git clone "Repo URL"`.</h4>
+<h4>2. Clone Repository in your PC using .</h4> 
+```
+git clone "Repo URL"
+```
+
 <h4>3. Run `npm install` or `yarn install` command in your terminal.</h4>
 <h4>4. Run `npm run start` or `yarn start` command to see appliction in browser.</h4>
 
