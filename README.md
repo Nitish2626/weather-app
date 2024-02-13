@@ -10,13 +10,46 @@
 </div>
 
 <h3>Setup Repository </h3>
-<h4>1. Fork this Repository</h4>
-<h4>2. Clone Repository in your PC using .</h4> 
-```
-git clone "Repo URL"
-```
 
-<h4>3. Run `npm install` or `yarn install` command in your terminal.</h4>
-<h4>4. Run `npm run start` or `yarn start` command to see appliction in browser.</h4>
+1. Fork this Repository
+2. Clone Repository in your PC using `git clone "Repo URL"`
+3. Run `npm install` or `yarn install` command in your terminal.
+4. Run `npm run start` or `yarn start` command to see appliction in browser.
 
+### Features
+1. App is made using third-party API  [Weather API](https://www.weatherapi.com/).
 
+2. Allowing **Location Permission** will help to find **Current Location Weather Conditions**.
+<img src="./src/images/location.png" width="200" height="100"></img>
+
+3. Search using **"city name"** or **"latitude,longitude"** in search barfor getting **desired location weather conditions**.
+<br>
+*City name Exapmle :*
+<br>
+<img src="./src/images/city.png" width="100" height="200"></img>
+<br>
+*Latitude,Longitude Exapmle :*
+<br>
+<img src="./src/images/lat-lan.png" width="100" height="200"></img>
+
+4. Search bar provides **Suggestion Feature**, which will help in **Faster Search**.
+<br> 
+<img src="./src/images/suggestion.png" width="100" height="200"></img>
+
+5. Switching **Dark Mode** will provide better **UI Experience**.
+<br>
+<img src="./src/images/dark.png" width="100" height="200"></img>
+
+6. WebApp is also responsive.
+<br>
+*Mobile Devices :*
+<br>
+<img src="./src/images/city.png" width="100" height="200"></img>
+<br>
+*Tablets :*
+<br>
+<img src="./src/images/tablet.png" width="250" height="200"></img>
+<br>
+*Desktop :*
+<br>
+<img src="./src/images/desktop.png" width="300" height="150"></img>
