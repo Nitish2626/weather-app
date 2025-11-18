@@ -6,24 +6,23 @@ import { useEffect, useState } from "react";
 import SuggestionContainer from "./components/suggestion container/SuggestionContainer";
 import { useDarkMode } from "./components/dark mode context/DarkModeContext";
 
-
 function App() {
+  const { isDarkMode } = useDarkMode();
 
-  const {isDarkMode}=useDarkMode();
-
-  const [searchValue, setSearchValue] = useState(`${localStorage.getItem("latitude")},${localStorage.getItem("longitude")}`);
+  const [latitude, setLatitude] = useState(localStorage.getItem("latitude"));
+  const [longitude, setLongitude] = useState(localStorage.getItem("longitude"));
+  const [searchValue, setSearchValue] = useState(`${latitude},${longitude}`);
 
   const [showSuggestion, setShowSuggestion] = useState(false);
 
   useEffect(() => {
-
     const success = (pos) => {
       localStorage.setItem("latitude", `${pos.coords.latitude}`);
       localStorage.setItem("longitude", `${pos.coords.longitude}`);
     };
 
     const failed = () => {
-      alert("location Access Denied");
+      alert("Location Access Denied !");
     };
 
     const getLocation = () => {
@@ -31,24 +30,24 @@ function App() {
     };
 
     getLocation();
-  }, [localStorage.getItem("latitude"), localStorage.getItem("longitude")]);
+  }, [latitude, longitude]);
 
-  const search = (s) => {
-    setSearchValue(s);
-  };
 
   return (
-    <div className={`${isDarkMode ? "dark:bg-black" : "bg-white"}`}>
+    <div className={`h-screen ${isDarkMode ? "dark:bg-black" : "bg-white"}`}>
       <Router>
-
-        <Navigation />
-        <Search search={search} suggestion={setShowSuggestion} />
-        {showSuggestion && <SuggestionContainer search={searchValue} value={search} suggestion={setShowSuggestion} />}
+        <Navigation search={setSearchValue} suggestion={setShowSuggestion} />
+        {showSuggestion && (
+          <SuggestionContainer
+            search={searchValue}
+            value={setSearchValue}
+            suggestion={setShowSuggestion}
+          />
+        )}
 
         <Routes>
-          <Route path="/" element={<Home search={searchValue} />}></Route>
+          <Route path="/" element={<Home search={!showSuggestion && searchValue} />}></Route>
         </Routes>
-
       </Router>
     </div>
   );

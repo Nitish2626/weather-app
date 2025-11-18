@@ -4,7 +4,7 @@ const WeatherDataConatiner = (props) => {
             <h2 className="text-md text-gray-500 text-center">
                 {props.text}
             </h2>
-            <h1 className="text-lg text-center">
+            <h1 className={`text-lg text-center ${props.styles}`} title={props.title}>
                 {props.value}
             </h1>
         </section>
