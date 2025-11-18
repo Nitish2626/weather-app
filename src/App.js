@@ -45,7 +45,10 @@ function App() {
         )}
 
         <Routes>
-          <Route path="/" element={<Home search={!showSuggestion && searchValue} />}></Route>
+          <Route
+            path="/"
+            element={<Home search={searchValue} showSuggestion={showSuggestion} />}
+          ></Route>
         </Routes>
       </Router>
     </div>

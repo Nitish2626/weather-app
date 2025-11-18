@@ -10,23 +10,25 @@ const Home = (props) => {
   const [forecastWeatherData, setForecastWeatherData] = useState();
   const [loader, setLoader] = useState(false);
 
-  useEffect(() => {
-    const forecastWeather = async () => {
-      try {
-        setLoader(true);
-        const weatherCondition = await axios.get(
-          `https://api.weatherapi.com/v1/forecast.json?key=131dcb1e52f444998f574148232612&q=${props.search}&days=1&aqi=yes&alerts=no`
-        );
-        const weather = await weatherCondition.data;
-        setForecastWeatherData(await weather);
-      } catch (err) {
-        alert("Something went wrong !");
-      } finally {
-        setLoader(false);
-      }
-    };
+  const forecastWeather = async (search) => {
+    try {
+      setLoader(true);
+      const weatherCondition = await axios.get(
+        `https://api.weatherapi.com/v1/forecast.json?key=131dcb1e52f444998f574148232612&q=${search}&days=1&aqi=yes&alerts=no`
+      );
+      const weather = await weatherCondition.data;
+      setForecastWeatherData(await weather);
+    } catch (err) {
+      alert("Something went wrong !");
+    } finally {
+      setLoader(false);
+    }
+  };
 
-    forecastWeather();
+  useEffect(() => {
+    if(!props.showSuggestion){
+      forecastWeather(props.search === "" ? "null": props.search);
+    }
   }, [props.search]);
 
   return (

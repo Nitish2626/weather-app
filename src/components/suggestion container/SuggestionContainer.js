@@ -6,19 +6,20 @@ const SuggestionContainer = (props) => {
   const { isDarkMode } = useDarkMode();
   const [suggestion, setSuggestion] = useState([]);
 
+  const searchSuggestion = async (search) => {
+    try {
+      const suggest = await axios.get(
+        `https://api.weatherapi.com/v1/search.json?key=131dcb1e52f444998f574148232612&q=${search}`
+      );
+      setSuggestion(await suggest.data);
+    } catch (error) {
+      alert("Something went wrong !");
+    }
+  };
+
   useEffect(() => {
-    const suggestion = async () => {
-      try {
-        const suggest = await axios.get(
-          `https://api.weatherapi.com/v1/search.json?key=131dcb1e52f444998f574148232612&q=${props.search}`
-        );
-        setSuggestion(await suggest.data);
-      } catch (error) {
-        alert("Something went wrong !");
-      }
-    };
-    suggestion();
-  }, [props.search !== ""]);
+    searchSuggestion(props.search === "" ? "null" : props.search);
+  }, [props.search]);
 
   return (
     <div
