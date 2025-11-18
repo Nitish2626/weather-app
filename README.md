@@ -10,7 +10,7 @@
 </div>
 
 <h3>Live Site URL</h3>
-[Globe Climate: https://globeclimate.netlify.app/].
+Globe Climate: https://globeclimate.netlify.app/.
 
 ### Features
 1. App is made using third-party API  [Weather API](https://www.weatherapi.com/).
