@@ -37,7 +37,7 @@ function App() {
     <div className={`h-screen ${isDarkMode ? "dark:bg-black" : "bg-white"}`}>
       <Router>
         <Navigation search={setSearchValue} suggestion={setShowSuggestion} />
-        {showSuggestion && (
+        {showSuggestion && searchValue !== "" && (
           <SuggestionContainer
             search={searchValue}
             value={setSearchValue}
