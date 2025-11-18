@@ -1,4 +1,4 @@
-<h1> <img src="src/images/weather-logo.png" alt="HTML image" width="40" height="40" /> Weather WebApp </h1>
+<h1> <img src="src/images/weather-logo.png" alt="HTML image" width="40" height="40" /> Globe Climate </h1>
 
 <h2>Technologies used</h2>
 <div style="display:flex">
