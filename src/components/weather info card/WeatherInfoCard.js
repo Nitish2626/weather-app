@@ -54,12 +54,9 @@ const WeatherInfoCard = (props) => {
       bpHigh = 350;
     }
 
-    console.log(iHigh, iLow, bpHigh, bpLow, props.pm2_5);
-
     aqi = Math.round(
       ((iHigh - iLow) / (bpHigh - bpLow)) * (props.pm2_5 - bpLow) + iLow
     );
-    console.log("aqi", aqi);
     setAqiLevel(aqi);
 
     if (aqi >= 0 && aqi <= 50) {

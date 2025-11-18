@@ -14,7 +14,7 @@ const SuggestionContainer = (props) => {
         );
         setSuggestion(await suggest.data);
       } catch (error) {
-        console.log(error);
+        alert("Something went wrong !");
       }
     };
     suggestion();

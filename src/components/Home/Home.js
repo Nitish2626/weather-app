@@ -18,10 +18,8 @@ const Home = (props) => {
           `https://api.weatherapi.com/v1/forecast.json?key=131dcb1e52f444998f574148232612&q=${props.search}&days=1&aqi=yes&alerts=no`
         );
         const weather = await weatherCondition.data;
-        console.log("we", weather);
         setForecastWeatherData(await weather);
       } catch (err) {
-        console.log(err);
         alert("Something went wrong !");
       } finally {
         setLoader(false);
