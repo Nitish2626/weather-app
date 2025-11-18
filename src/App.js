@@ -32,7 +32,6 @@ function App() {
     getLocation();
   }, [latitude, longitude]);
 
-
   return (
     <div className={`h-screen ${isDarkMode ? "dark:bg-black" : "bg-white"}`}>
       <Router>

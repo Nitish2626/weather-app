@@ -18,7 +18,7 @@ const SuggestionContainer = (props) => {
       }
     };
     suggestion();
-  }, [props.search]);
+  }, [props.search !== ""]);
 
   return (
     <div
