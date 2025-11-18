@@ -9,12 +9,8 @@
   <img src="src/images/react.png" alt="HTML image" width="30" height="30" />
 </div>
 
-<h3>Setup Repository </h3>
-
-1. Fork this Repository
-2. Clone Repository in your PC using `git clone "Repo URL"`
-3. Run `npm install` or `yarn install` command in your terminal.
-4. Run `npm run start` or `yarn start` command to see appliction in browser.
+<h3>Live Site URL</h3>
+[Globe Climate: https://globeclimate.netlify.app/](https://globeclimate.netlify.app/).
 
 ### Features
 1. App is made using third-party API  [Weather API](https://www.weatherapi.com/).
