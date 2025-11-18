@@ -9,7 +9,7 @@
   <img src="src/images/react.png" alt="HTML image" width="30" height="30" />
 </div>
 
-<h3>Live Site URL</h3>
+### Live Site URL
 Globe Climate: https://globeclimate.netlify.app/.
 
 ### Features
